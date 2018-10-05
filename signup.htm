@@ -1,0 +1,50 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<h1>Baker's Street</h1>
+
+<ul>
+  <li><a href="home.htm">Home</a></li>
+  <li><a href="#menu">Menu</a></li>
+  <li><a href="#signin">Sign In</a></li>
+  <li><a class="active" href="#signin">Sign Up</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+
+<span >
+<form class="content" action="adduser.php" method="post" id="signup">
+
+Name: <input type="text" name="name" required>*<br><br>
+Username: <input type="text" name="userid" required>*<br><br>
+Password: <input type="password" id="psw" name="psw" required>*Password should be greater than 10 characters and should contain atleast one number.<br>
+<br>Email: <input type="text" name="mail"><br><br>
+Phone No.: <input type="text" name="phone" required>*<br><br>
+<input type="submit" value="submit">
+</form>
+<p id="fault" ></p>
+</span>
+
+<script>
+function valid(e)
+{
+w = document.getElementById("psw").value;
+if(w.length < 11){
+	document.getElementById("fault")="password is too short.";
+	}
+if(w.search([0-9] == -1) {
+	document.getElementById("fault")="No number present";
+}
+}
+
+window.onload = function() {
+  document.getElementById("signup").addEventListener("submit", function(e){
+      valid(e);
+  });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+
+$sql2="CALL getTotal('$uid',@t)";
+$sql4="SELECT @t AS total"
+if(mysqli_query($conn,$sql2))
+{
+	$to=mysqli_query($conn,$sql4);
+	$tot = mysqli_fetch_assoc($to);
+	echo "Total Cost: ".$tot['total'];
+}
